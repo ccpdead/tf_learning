@@ -1,0 +1,15 @@
+data
+*.jpg
+00-model
+fashion_mnist
+05-Yolo
+image
+label
+*.pb
+.idea
+.ipynb*
+
+
+
+
+
