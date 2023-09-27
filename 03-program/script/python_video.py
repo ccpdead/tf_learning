@@ -17,7 +17,7 @@ def compute(img):
     img = img / 255.0
     dataset = tf.constant(img)  # IMG转化为Tensor
     dataset = np.expand_dims(dataset, 0)
-    resout = model_signature(dataset)  # 模型预测
+    resout = model_signature(x=dataset)  # 模型预测
     resout = resout["output_0"]
     resout = np.array(resout)
     resout[0][..., :4] *= [640, 480, 640, 480]
@@ -50,7 +50,7 @@ def img_show(Rect, src):
     # cv2.waitKey(0)
 
 
-def non_max_suppression(resout, conf_thres=0.5, iou_thres=0.8, mi=10):
+def non_max_suppression(resout, conf_thres=0.7, iou_thres=0.7, mi=10):
     max_wh = 7680
     max_nms = 30000
     max_det = 300
